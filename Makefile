@@ -1,7 +1,7 @@
 
 package = case-insensitive-match
 lib = dist/build/libHS$(package)-*
-
+lib-hs-files = $(shell find lib/ -type f -name \*.hs)
 
 
 
@@ -29,7 +29,7 @@ test :
 
 $(package) : $(lib).a
 
-$(lib).a : dist/setup-config $(shell find lib/ -type f -name \*.hs)
+$(lib).a : dist/setup-config $(lib-hs-files)
 	cabal build $(package)
 
 
@@ -46,10 +46,13 @@ dist/build/test-basics/test-basics : $(lib).a src/test-basics.hs
 
 .PHONY : benchmarks
 
-benchmarks : dist/build/bench-others/bench-others
+benchmarks : dist/build/bench-others/bench-others dist/build/bench-tagsoup/bench-tagsoup
 
 dist/build/bench-others/bench-others : $(lib).a src/bench-others.hs
 	cabal build bench-others
+
+dist/build/bench-tagsoup/bench-tagsoup : $(lib).a src/bench-tagsoup.hs
+	cabal build bench-tagsoup
 
 
 
@@ -64,9 +67,9 @@ dist/build/readme-example/readme-example : $(lib).a src/readme-example.hs
 
 .PHONY : docs
 
-docs : dist/doc/html
+docs : dist/doc/html/case-insensitive-match/index.html
 
-dist/doc/html : lib/*/*.hs
+dist/doc/html/case-insensitive-match/index.html : $(lib-hs-files)
 	cabal haddock
 
 
