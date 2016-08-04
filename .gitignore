@@ -1,0 +1,10 @@
+
+
+Session.vim
+*.swp
+notes/
+
+dist/
+.cabal-sandbox
+cabal.sandbox.config
+
