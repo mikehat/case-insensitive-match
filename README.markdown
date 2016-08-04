@@ -1,5 +1,5 @@
 
-### case-insensitive-match 0.1.0.0
+### case-insensitive-match 0.1.1.0
 
 Here is a simplified library for matching and comparing strings in a
 case-insensitive manner. The only dependencies are `base`, `bytestring` and
