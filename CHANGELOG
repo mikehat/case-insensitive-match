@@ -1,0 +1,11 @@
+
+0.1.1.0
+
+- Fixed repo URI in case-insensitive-match.cabal
+
+0.1.1.1
+
+- Fixes in Makefile
+- Improvements in Word8 comparisons
+- Benchmark to evaluate internal changes
+

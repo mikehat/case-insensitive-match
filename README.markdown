@@ -1,5 +1,5 @@
 
-### case-insensitive-match 0.1.1.0
+### case-insensitive-match 0.1.1.1
 
 Here is a simplified library for matching and comparing strings in a
 case-insensitive manner. The only dependencies are `base`, `bytestring` and
@@ -21,6 +21,12 @@ Usage is simple
     get_names p = (last_name p,first_name p)
     sortBy (caseInsensitiveComparing get_names) people
 
+#### Work in progress
+
+- revisit Word8 comparison functions
+- explore some ByteString.Internal insanity
+- add a benchmark to evaluate internal changes
+
 #### Benchmarks
 
 The benchmarks are pretty comprehensive, offering comparisons with other
@@ -36,7 +42,7 @@ are often unequal this algorithm is clearly fastest.
 There is also a real-world bench test that compares different algorithms while
 looking for links in an HTML file with Text.HTML.TagSoup. This bench involves
 a lot of work other than string comparison, so the differences between
-algorithms is slim, but usually measurable. Build an run:
+algorithms is slim, but usually measurable. Build and run:
 
     $ cabal build bench-tagsoup
     ...
